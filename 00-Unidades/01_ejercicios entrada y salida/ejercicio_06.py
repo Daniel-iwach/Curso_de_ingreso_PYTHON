@@ -5,22 +5,21 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Daniel
+apellido:Iwach
 ---
-Ejercicio: entrada_salida_08
+Ejercicio: entrada_salida_06
 ---
 Enunciado:
-Al presionar el botón  'Calcular', se deberán obtener los valores contenidos en las cajas de texto (txtOperadorA y txtOperadorB), 
-transformarlos en números enteros, calcular y mostrar el resto de la división entre ambos números, utilizando el Dialog Alert. 
-Ej: "El resto de dividir 7 por 2 es: 1" 
+Al presionar el botón  'Sumar', se deberán obtener los valores contenidos en las cajas de texto (txt_operador_A y txt_operador_B), transformarlos en números enteros, realizar la suma y luego mostrar el resultado de la operación utilizando el Dialog Alert. 
+Ej: "El resultado de la sumas es: 755" 
 '''
 
 class App(customtkinter.CTk):
     
     def __init__(self):
         super().__init__()
-
+        
         self.title("UTN FRA")
 
         self.label1 = customtkinter.CTkLabel(master=self, text="Operador A")
@@ -35,15 +34,18 @@ class App(customtkinter.CTk):
         self.txt_operador_b = customtkinter.CTkEntry(master=self)
         self.txt_operador_b.grid(row=1, column=1)
         
-        self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.btn_mostrar_on_click)
-        self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
+        self.btn_sumar = customtkinter.CTkButton(master=self, text="Sumar", command=self.btn_sumar_on_click)
+        self.btn_sumar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
 
-    def btn_mostrar_on_click(self):
+    def btn_sumar_on_click(self):
+        dato_a=self.txt_operador_a.get()
+        dato_b=self.txt_operador_b.get()
+        suma=int(dato_a)+int(dato_b)
+        alert(title="alerta", message="el resultado de la suma es " + str(suma))
         pass
+     
         
-        
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
