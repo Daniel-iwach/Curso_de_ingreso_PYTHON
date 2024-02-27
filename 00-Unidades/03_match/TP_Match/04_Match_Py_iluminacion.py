@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Daniel
+apellido:Iwach
 ---
 TP: Iluminación
 ---
@@ -43,10 +43,9 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
         
     
-if __name__ == "__main__":
-    app = App()
-    app.geometry("300x300")
-    app.mainloop()
+        if __name__ == "__main__":
+             app = App()
+             app.geometry("300x300")
+             app.mainloop()

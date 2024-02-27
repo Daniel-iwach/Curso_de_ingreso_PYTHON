@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Daniel
+apellido:Iwach
 ---
 TP: While_validaciones_rising_btl
 ---
@@ -55,8 +55,60 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        validacion=0
 
+        while validacion!=4:
+          validacion=0
+          apellido=prompt(title="Datos personales", prompt="ingrese su apellido")
+          edad=prompt(title="Datos personales", prompt="ingrese una edad")
+          estado_civil=prompt(title="Datos personales", prompt="ingrese su estado civil (Soltero/a, Casado/a, Divorciado/a,Viudo/a)")
+          legajo=prompt(title="Datos personales", prompt="ingrese su legajo")
+
+          if apellido.isdigit()!=True:
+             validacion=validacion+1
+             print(validacion)
+          else:
+             print("apellido") 
+
+          if 18<=int(edad)<=90:
+             validacion=validacion+1
+             print(validacion)
+          else:
+             print("edad")
+
+          if 999<int(legajo)<10000:
+             validacion=validacion+1
+             print(validacion)
+          else:
+             print("legajo")
+
+          match(estado_civil):
+
+           case "Soltero"|"Soltera"|"Casado"|"Casada"|"Viudo"|"Viuda"|"Divorciado"|"Divorciada":
+               validacion=validacion+1
+           case _:  
+             print("apellido") 
+                  
+
+
+
+
+        self.txt_apellido.delete("0","end")
+        self.txt_apellido.insert("0", apellido)
+
+        self.txt_edad.delete("0","end")
+        self.txt_edad.insert("0",edad)
+
+        
+        self.combobox_tipo.set(estado_civil)
+
+        self.txt_legajo.delete("0","end")
+        self.txt_legajo.insert("0",legajo)   
+
+              
+
+     
+   
 
 if __name__ == "__main__":
     app = App()

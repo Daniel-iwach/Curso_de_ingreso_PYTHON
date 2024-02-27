@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Daniel
+apellido:Iwach
 ---
 TP: IF_Iluminacion
 ---
@@ -43,10 +43,63 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
+        cantidad=self.combobox_cantidad.get()
+        marca=self.combobox_marca.get()
+        print(cantidad) 
+        print(marca) 
+
+        if int(cantidad)>=6:
+            precio=800*int(cantidad)
+            precio_con_descuento=50*int(precio)/100 
+            print(precio_con_descuento) 
+        elif int(cantidad)==5:
+            if marca=="ArgentinaLuz":
+               precio=800*5
+               precio_con_descuento=60*int(precio)/100
+               print(precio_con_descuento) 
+            else:
+             precio=800*5
+             precio_con_descuento=70*int(precio)/100
+             print(precio_con_descuento) 
+        elif int(cantidad)==4:
+                if marca=="ArgentinaLuz" or marca=="FelipeLamparas":
+                 precio=800*4
+                 precio_con_descuento=75*int(precio)/100
+                 print(precio_con_descuento) 
+                else:
+                 precio=800*4
+                 precio_con_descuento=80*int(precio)/100
+                 print(precio_con_descuento) 
+        elif int(cantidad)==3:
+                 if marca=="ArgentinaLuz":
+                     precio=800*3
+                     precio_con_descuento=85*int(precio)/100
+                     print(precio_con_descuento) 
+                 else:
+                     if marca=="FelipeLamparas":
+                      precio=800*3
+                      precio_con_descuento=90*int(precio)/100
+                      print(precio_con_descuento) 
+                     else:
+                         precio=800*3
+                         precio_con_descuento=95*int(precio)/100
+                         print(precio_con_descuento) 
+        elif int(cantidad)<3:
+                 precio_final=800*int(cantidad)
+                 alert(title="precio final", message="El precio final de todo es "+ str(precio_final))
         pass
-        
-    
+
+        if 4000<precio_con_descuento:
+         precio_final=95*int(precio_con_descuento)/100
+         alert(title="precio final", message="El precio final de todo es "+ str(precio_final))
+        else:
+            precio_final=precio_con_descuento
+            alert(title="precio final", message="El precio final de todo es "+ str(precio_final))
+            pass
+
+             
 if __name__ == "__main__":
-    app = App()
-    app.geometry("300x300")
-    app.mainloop()
+          app = App()
+          app.geometry("300x300")
+          app.mainloop()
+          

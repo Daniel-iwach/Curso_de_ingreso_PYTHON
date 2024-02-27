@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre:Daniel
+apellido:Iwach
 ---
 Ejercicio: Match_09
 ---
@@ -57,7 +57,55 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+     destino=self.combobox_destino.get()
+     estacion=self.combobox_estaciones.get()
+     PRECIO=15000
+     match(estacion):
+        case'Verano':
+           match(destino):
+                case'Bariloche':
+                 porcentaje=80
+                case'Cordoba':
+                 porcentaje=110
+                
+                case'Mar del plata':
+                 porcentaje=120
+                
+                case 'Cataratas':
+                 porcentaje=110
+        
+        
+        case'Invierno':
+            match(destino):
+             case'Bariloche':
+                 porcentaje=120
+             case'Cordoba':
+                 porcentaje=90
+                
+             case'Mar del plata':
+                 porcentaje=80
+                
+             case 'Cataratas':
+                 porcentaje=90
+
+           
+        case'Otoño'|'Primavera':
+            match(destino):
+             case'Bariloche':
+                 porcentaje=110
+             case'Cordoba':
+                 porcentaje=100
+                
+             case'Mar del plata':
+                 porcentaje=110
+                
+             case 'Cataratas':
+                 porcentaje=110
+
+     precio_final=PRECIO*porcentaje/100
+     precio_final=int(precio_final)
+
+     alert(title="viaje", message="El precio final de su viaje es de" + str(precio_final)+ " pesos")                          
             
     
 if __name__ == "__main__":

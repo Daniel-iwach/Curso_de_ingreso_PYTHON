@@ -55,7 +55,7 @@ class App(customtkinter.CTk):
         valor_1=self.txt_importe_1.get()
         valor_2=self.txt_importe_2.get()
         valor_3=self.txt_importe_3.get()
-        suma=int(valor_1)+int(valor_2)+int(valor_3)
+        suma=float(valor_1)+float(valor_2)+float(valor_3)
         alert(title="alert", message="La suma de los precios es de "+ str(suma))
         pass
 
@@ -63,8 +63,8 @@ class App(customtkinter.CTk):
          valor_1=self.txt_importe_1.get()
          valor_2=self.txt_importe_2.get()
          valor_3=self.txt_importe_3.get()
-         suma=int(valor_1)+int(valor_2)+int(valor_3)
-         promedio=int(suma)/3
+         suma=float(valor_1)+int(valor_2)+float(valor_3)
+         promedio=float(suma)/3
          alert(title="alert",message="el promedio de los productos es "+str(promedio))
          pass
 
@@ -72,9 +72,9 @@ class App(customtkinter.CTk):
          valor_1=self.txt_importe_1.get()
          valor_2=self.txt_importe_2.get()
          valor_3=self.txt_importe_3.get()
-         suma=int(valor_1)+int(valor_2)+int(valor_3)
-         iva=int(suma)*21/100
-         total=int(suma)+int(iva)
+         suma=float(valor_1)+float(valor_2)+float(valor_3)
+         iva=float(suma)*21/100
+         total=float(suma)+float(iva)
          alert(title="alert", message="el precio final con IVA incluido es de "+ str(total))
          pass      
     
